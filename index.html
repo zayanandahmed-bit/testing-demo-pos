@@ -1246,7 +1246,7 @@
   // Every change lands here first so nothing is ever lost to a dropped
   // connection or a refresh — the cloud push below is what makes it durable
   // for other devices, but this is what protects THIS device in the meantime.
-  var LOCAL_STORAGE_KEY = "hafizPos_localState_v1";
+  var LOCAL_STORAGE_KEY = "testingDemoPos_localState_v1";
   function saveLocalState(){
     try{
       var snapshot = {
@@ -1276,7 +1276,7 @@
   //  - every other domain: just a "dirty" flag, since sync_replace_* always resends
   //    that whole (small, bounded) table from current state — retrying just means
   //    resending the latest version, so only the flag needs to survive a reload.
-  var PENDING_QUEUE_KEY = "hafizPos_pendingQueue_v1";
+  var PENDING_QUEUE_KEY = "testingDemoPos_pendingQueue_v1";
   var pendingQueue = { sales: [], refunds: [] };
   (function loadPendingQueue(){
     try{
@@ -1287,7 +1287,7 @@
   function savePendingQueue(){
     try{ localStorage.setItem(PENDING_QUEUE_KEY, JSON.stringify(pendingQueue)); }catch(e){}
   }
-  var DIRTY_DOMAINS_KEY = "hafizPos_dirtyDomains_v1";
+  var DIRTY_DOMAINS_KEY = "testingDemoPos_dirtyDomains_v1";
   var dirtyDomains = {};
   (function loadDirtyDomains(){
     try{
