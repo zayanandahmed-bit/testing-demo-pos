@@ -780,6 +780,7 @@ $$;
 -- Supabase's statement timeout — this function itself has no size limit,
 -- the timeout is on how much work fits in one call.
 
+drop function if exists sync_append_sales_batch_td(jsonb);
 create or replace function sync_append_sales_batch_td(sales jsonb)
 returns void
 language plpgsql
@@ -854,6 +855,7 @@ $$;
 -- immediately — each only touches its own table, so editing inventory never
 -- has to resend sales_td history (and vice versa).
 
+drop function if exists sync_replace_items_td(jsonb);
 create or replace function sync_replace_items_td(items jsonb)
 returns void
 language plpgsql
@@ -885,6 +887,7 @@ begin
 end;
 $$;
 
+drop function if exists sync_replace_categories_td(jsonb);
 create or replace function sync_replace_categories_td(categories jsonb)
 returns void
 language plpgsql
@@ -898,6 +901,7 @@ begin
 end;
 $$;
 
+drop function if exists sync_replace_suppliers_td(jsonb);
 create or replace function sync_replace_suppliers_td(suppliers jsonb)
 returns void
 language plpgsql
@@ -912,6 +916,7 @@ begin
 end;
 $$;
 
+drop function if exists sync_replace_cashiers_td(jsonb);
 create or replace function sync_replace_cashiers_td(cashiers jsonb)
 returns void
 language plpgsql
@@ -926,6 +931,7 @@ begin
 end;
 $$;
 
+drop function if exists sync_replace_purchases_td(jsonb);
 create or replace function sync_replace_purchases_td(purchases jsonb)
 returns void
 language plpgsql
@@ -944,6 +950,7 @@ begin
 end;
 $$;
 
+drop function if exists sync_replace_expenses_td(jsonb);
 create or replace function sync_replace_expenses_td(expenses jsonb)
 returns void
 language plpgsql
@@ -959,6 +966,7 @@ begin
 end;
 $$;
 
+drop function if exists sync_replace_customers_td(jsonb);
 create or replace function sync_replace_customers_td(customers jsonb)
 returns void
 language plpgsql
@@ -988,6 +996,7 @@ begin
 end;
 $$;
 
+drop function if exists sync_replace_held_sales_td(jsonb);
 create or replace function sync_replace_held_sales_td("heldSales" jsonb)
 returns void
 language plpgsql
@@ -1008,6 +1017,7 @@ begin
 end;
 $$;
 
+drop function if exists sync_replace_shifts_td(jsonb);
 create or replace function sync_replace_shifts_td(shifts jsonb)
 returns void
 language plpgsql
@@ -1025,6 +1035,7 @@ begin
 end;
 $$;
 
+drop function if exists sync_replace_active_shift_td(jsonb);
 create or replace function sync_replace_active_shift_td("activeShift" jsonb)
 returns void
 language plpgsql
@@ -1046,6 +1057,7 @@ begin
 end;
 $$;
 
+drop function if exists sync_replace_settings_td(jsonb);
 create or replace function sync_replace_settings_td(settings jsonb)
 returns void
 language plpgsql
